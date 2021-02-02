@@ -1,0 +1,850 @@
+/*
+        1-Commen Styles
+        2-General Styles
+        3-Sections
+            3.0 Header Section
+            3.1 Home Section
+            3.2 About Section
+            3.3 Portfolio Section
+            3.4 Service Section
+            3.5 Prices Section
+            3.6 Team Section
+            3.7 Blog Page
+            3.8 Contact Section
+            3.9 Footer Section
+                
+*/
+
+/* 1- common styles*/
+/* 1.0 overlay*/
+.overlay {
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    height: 100%; /* يعنى ياخد العرض من ابوه كاملة 100%*/
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* 2-General Styles*/
+* {                  /*universal selector*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* make border and padding not increase elememts width*/
+}
+.container {
+    width: 80%;
+    margin: auto;
+}
+.hover-opacity{ /*هنا بنحدد وقت علشان الكلاس تتنفذ */
+    transition: opacity 0.5s; /*هنا عددا خاصية واحدة بس تتنفذ لانها بتتنفذ على كل الخواص*/
+}
+.hover-opacity:hover {
+    opacity: 0.8;
+}
+
+.sectino-header{
+    text-align:center;
+
+}
+    .sectino-header .section-title {
+        font-size: 33px;
+        text-transform: capitalize;
+        margin-bottom: 10px;
+    }
+    .sectino-header .line {
+        width: 60px;
+        height: 4px;
+        display: block;
+        margin-bottom: 12px;
+        margin-top:10px;
+        background-color: #6195ff;
+        margin: 0 auto 70px auto;
+    }
+.pd-y{
+    padding:120px 0;
+}
+/* effect top to botton*/
+.ttb-effect{
+    position:relative;
+}
+    .ttb-effect:after {
+        position: absolute;
+        height: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #333;
+        content: "";
+        transition: 2s;
+        z-index: -1;
+    }
+.ttb-effect:hover::after {
+        height: 100%;
+    }
+/*left to right*/
+.ltr-effect {
+    position: relative;
+}
+
+.ltr-effect:after {
+        position: absolute;
+        width: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #333;
+        content: "";
+        transition: 2s;
+        z-index:-1;
+    }
+
+.ltr-effect:hover::after {
+        width: 100%;
+    }
+.clear {
+    clear: both;
+}
+/*Section*/
+/* 3.0 Header Section*/
+.header {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    background:rgba(0,0,0,.6);
+}
+.header-content { /* anthor solution to float problem*/
+    /*overflow: hidden;*/
+}
+
+.header .logo{
+    width:40%;
+    float:left;
+}
+.header .logo img{
+    width:100px;
+    margin-top:8px;
+}
+.header .nav{
+    width:60%;
+    float:left;
+    list-style:none;
+    text-align:right;
+}
+.header .nav >li {
+    display: inline-block;
+}
+.header .nav >li > a{
+    text-decoration:none;
+    padding:20px 18px;
+    display:block; /*علشان اخلى البادنج يشتغل من فوق ومن تحت برده*/
+    color:#fff;
+}
+    /*الخط اللى تحت العنوان فى الهيدر aqua*/
+    .header .nav > li >a::after {
+        content: "";
+        background-color: #fff;
+        height: 2px;
+        display: block;
+        width:0;
+    }
+.header .nav > li > a.active:after 
+,.header .nav > li > a:hover::after
+{
+     content:"";
+     background-color:#fff;
+     height:2px;
+     display:block;
+     width:100%;
+     transition:1s;
+}
+        /*dropdown with blog*/
+
+.dropdown{
+    position:relative;
+}
+.dropdown-menu{
+    position:absolute;
+    background-color:#6195ff;
+    width:150px;
+    text-align:center;
+    left: -50%;
+    top:70%;
+    visibility:hidden;
+    opacity:0;
+}
+.dropdown .dropdown-menu a{
+    text-decoration:none;
+    color:#fff;
+    display:block;
+    padding:10px;
+}
+.dropdown:hover .dropdown-menu { /*دا معناه لما اشاور على الدروب دوان هاتلى الدروب داون مينيو ونفذلى الجاى*/
+    opacity: 1;
+    visibility: visible;
+}
+/* 3 .1 Home Section */
+.home {
+    height: 100vh;
+    background-image: url("../images/background/background1.webp");
+    background-size: cover;
+    position: relative;
+}
+.home-content{      /*hero image هتطبق هنا علشان اوسطن عنصر جوه عنصر */
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align:center;  
+}
+.home-content .title{
+    color:#fff;
+    font-size:3rem;
+    text-transform:uppercase;
+}
+.home-desc {
+    margin:20px;
+    letter-spacing:2.5px;
+    line-height:2;
+    color:#fff;
+
+}
+.home-content .btn{
+    width:160px;
+    padding:10px 0;
+    border-radius:6px;
+    border: 0;
+    cursor:pointer;
+    font-size:20px;
+}
+.home-content .btn-start{
+    margin-right:8px; 
+    background-color:#fff;
+}
+.home-content .btn-learn {
+    background-color:#6195ff;
+    color:#fff;
+}
+/* About section */
+.about-content{
+    overflow:hidden;
+}
+.about-item{
+    float:left;
+    width:30%;
+    text-align:center;
+    border:2px solid #888;
+    padding:50px 20px;
+
+}
+.about-item:hover .about-item-title{
+        color:#fff;
+    }
+    .about-item.mg {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+.about-item .icon{
+    color:springgreen;
+    margin-bottom:10px;
+}
+.about-item-title {
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    transition: color 0.5s;
+}
+.about-item-desc{
+    line-height:1.6;
+    margin-bottom:10px;
+}
+.about-item-link {
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #6195ff;
+}
+/* portfolio section */
+.portfolio{
+    background:#f9f9f9;
+}
+.portfolio-content{
+    overflow:hidden;
+}
+.portfolio-item{
+    float:left;
+    width:30%;
+    margin-bottom:60px;
+    position:relative;
+    text-align:center;
+    padding:20px;
+}
+.portfolio-item img{
+    width:100%
+}
+.portfolio-item.mg{
+    margin-left:5%;
+    margin-right:5%;
+}
+.portfolio-item .layer-content{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.5);
+    opacity:0;
+    transition:1s;
+}
+    .portfolio-item:hover .layer-content{
+        opacity:1;
+    }
+    .layer-content .layer-info {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 80%;
+    }
+.layer-info .category {
+    text-transform: uppercase;
+    color: #6195ff;
+    display:block;
+    margin-bottom:10px;
+}
+.layer-info .layer-content-title{
+    text-transform:capitalize;
+    color:#fff;
+    margin:10px;
+    font-size:30px;
+}
+.layer-content .layer-info a{
+    color:#fff;
+}
+.layer-info a i {
+    display: inline-block;
+    width: 60px;
+    height: 40px;
+    line-height: 40px; /*علشان اوسطنه بشكل راسي*/  
+    background: #6195ff;
+}
+/* offer-section */
+.offer-content{
+    overflow:hidden;
+}
+.offer-item{
+    float:left;
+    width:30%;
+    border:1px solid #e8e8e8;
+    margin-bottom:20px;
+    padding:20px 15px 30px 70px;
+    position:relative;
+
+}
+.offer-item.mg {
+    margin-left:5%;
+    margin-right:5%;
+}
+.offer-item .icon{
+    position:absolute;
+    top:20px;
+    left:25px;
+    color:#6195ff
+    }
+.offer-item-title {
+    text-transform:capitalize;
+    margin-bottom:15px;
+    transition:color 2s;
+    }
+.offer-item-desc {
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    color:#999;
+    line-height:1.6;
+}
+.offer-item:hover .offer-item-title {
+    color:aliceblue;
+
+}
+/* service-section*/
+.service{
+    background-color:#f9f9f9;
+}
+.service-content{
+    overflow:hidden;
+}
+.service-item{
+    float:left;
+    width:50%;
+}
+.service-item .sectino-header{
+    text-align:left;
+    }
+    .service-item .sectino-header .line{
+        margin:0 0 40px 0 ;
+    }
+.service-item-desc{
+    padding-right:20px;
+    color:#999;
+    line-height:1.4;
+    font-size:18px;
+    margin-bottom:20px;
+    
+}
+.service-list{
+    list-style:none;
+}
+.service-list li{
+    margin-bottom:10px;
+    color:#999;
+}
+.service-list li i {
+        border: 1px solid #5195ff;
+        border-radius: 50%;
+        color: #5195ff;
+        height:30px;
+        width:30px; 
+        padding:7px;
+}
+.service-item-image{
+    width:100%;
+}
+.service-bollets{
+    list-style:none;
+    text-align:center;
+}
+.service-bollets li{
+    width:10px;
+    height:10px;
+    background-color:#999;
+    display:inline-block;
+    border-radius:50%;
+    margin:20px 4px;
+}
+.service-bollets li:hover{
+        background-color:#6195ff;
+}
+.service-bollets li.service-bollets-no1 {
+        background-color: #6195ff;
+    }
+/* Number section*/
+.number{
+    background-image:url("../images/background/background2.webp");
+    background-attachment:fixed;
+    background-size:cover;
+    position:relative;
+    height:300px;
+
+}
+.number-items {
+    overflow: hidden;
+    text-align: center;
+    padding: 120px 0;
+}
+.number-item {
+    float: left;
+    width: 25%;
+    
+}
+.number-item .icon{
+    color:#6195ff;
+    margin-bottom:15px;
+}
+.number-item-title {
+    font-weight: 900;
+    font-size: 30px; 
+    color:#fff;
+}
+.number-item-text{
+    color:#fff;
+}
+
+/* pricing table section*/
+.pricing{
+
+}
+.pricing-items{
+    overflow:hidden;
+    text-align:center;
+
+}
+.price-item {
+    float: left;
+    width: 30%;
+    border: 1px solid #e8e8e8;
+    padding-top:20px;
+}
+.price-item.mg{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.pricing-item-text{
+    text-transform:uppercase;
+    font-size:17px;
+    color:#999;
+    transition: color 2s;
+    padding:10px;
+}
+.pricing-item-permonth{
+    width:100px;
+    height:100px;
+    margin:20px auto;
+    border:2px solid #6195ff;
+    border-radius:50%;
+    padding:18px ;
+    transition: color 2s;
+}
+
+.price-item .pricing-list {
+    list-style: none;
+}
+.pricing-list li{
+    line-height: 1.8;
+    margin-bottom: 10px;
+    color: #999;
+}
+.pricing-item-permonth .dollar{
+    font-size:30px;
+}
+.pricing-item-permonth .month{
+    text-transform:uppercase;
+    font-weight:bold;
+}
+.pricing-item-purchase {
+    background: none;
+    border: 0;
+    display: block;
+    width: 140px;
+    background: #fff;
+    padding: 10px;
+    margin: 15px auto 18px auto;
+    border: 2px solid #7ba7ff;
+    color: #7ba7ff;
+    transition: background 2s;
+}
+.price-item:hover .pricing-item-text{
+    color:#6195ff;
+}
+.price-item:hover .pricing-item-permonth{
+    color:white;
+}
+.price-item:hover .pricing-item-purchase{
+    background-color:black;
+}
+/* testimonial section */
+.testimonial {
+    background-image: url(../images/background/background3.webp);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    height: 400px;
+}
+.testimonial-content {
+    overflow: hidden;
+    padding:120px 0;
+}
+.testimonial-item {
+    float: left;
+    width: 50%;
+    color: #fff;
+
+}
+.testimonial-item .testimonial-topLayer {
+        padding: 0px 0px 10px 100px;
+        position: relative;
+    }
+.testimonial-topLayer img{
+    position:absolute;
+    left:14px;
+    top:-10px;
+    border-radius:50%;
+}
+.testimonial-bottonLayer{
+    margin-top:50px;
+}
+.jop-person{
+    color:#6195ff;
+    padding-top:5px;
+}
+.testimonial-bottonLayer-desc{
+    line-height:1.5;
+    font-size:17px; 
+}
+
+/* team-section */
+.team{
+
+}
+.team-content{
+    overflow :hidden;
+}
+.team-item {
+    float: left;
+    width: 30%;
+    background: #e8e8e8;
+    padding: 20px 10px;
+    text-align: center;
+    transition: background 2s;
+}
+.team-item .team-img{
+    width:90%;
+    margin:auto;
+    position:relative;
+}
+.team-item .team-img img {
+        width: 100%;
+    }
+.team-overlay {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background: rgba(0,0,0,.5);
+    opacity:0;
+    visibility:hidden;
+    transition:2s;
+}
+    .team-overlay a {
+        display: block;
+        margin-left: auto;
+        width: 40px;
+        height: 40px;
+        background: #7ba7ff;
+        color: #fff;
+    }
+.team-overlay i{
+    line-height:40px;
+}
+
+
+.team-item.mg {
+        margin-right: 5%;
+        margin-left: 5%;
+}
+.team-info-title{
+    color:#222;
+    margin:10px 0;
+    transition:color 2s;
+}
+.team-info-text{
+    color:#999;
+    text-transform:uppercase;
+    font-size:14px;
+    transition:color 2s;
+}
+.team-item:hover .team-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+.team-item:hover .team-info-title{
+    color:white;
+}
+.team-item:hover .team-info-text{
+    color:#6195ff;
+}
+.team-item.ttb-effect {
+    z-index: 1;
+}
+/* blog section*/
+.blog {
+    background-color: #f8f8f8;
+}
+.blog-content{
+    overflow:hidden;
+}
+.blog-item {
+    float: left;
+    width: 30%;
+    position: relative;
+    background:#fff;
+
+}
+.blog-item .blog-img {
+    position:relative;
+    width:100%;
+    }
+.blog-list,
+.blog-title,
+.blog-desc 
+ {
+    padding-left: 10px;
+}
+.lii{
+    display:inline-block;
+
+}
+.lii.mi {
+    margin: 0 5px;
+}
+.lii .icon{
+    color:#6195ff;
+}
+    .blog-item.mg {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+.blog-title{
+    font-size:20px;
+    font-weight:bold;
+    margin:15px 0;
+}
+.blog-desc{
+    color:#999;
+    line-height:1.5;
+}
+.blog-read {
+    margin-left: 10px;
+    margin: 15px 0 25px 10px;
+    border:none;
+    color:#6195ff;
+    background:none;
+}
+
+
+/* register section */
+.register{
+
+}
+.center{
+    
+}
+.register-info {
+    overflow: hidden;
+}
+.register-info-item {
+    width: 30%;
+    float: left;
+    text-align: center;
+    margin-bottom: 40px;
+  
+}
+.register-info-item .icon{
+    color:#6195ff;
+}
+.register-info-item .title{
+    padding:15px 0;
+    text-transform:capitalize;
+    font-size:20px;
+    font-weight:bold;
+}
+.register-info-item .desc{
+    color:#555;
+    }
+.register-info-item.mg{
+    margin:0 5%;
+
+}
+.register-data{
+    width:100%;
+}
+.register-data-form{
+    
+    width:60%;
+    margin:auto;
+}
+.horezintal{
+    overflow:hidden;
+}
+.horezintal .horezintal-item {
+    float: left;
+    width: 48%;
+    height: 29px;
+    border: none;
+    background: #e9e9e9;
+}
+
+.horezintal-item.mg {
+    margin-left: 2%;
+}
+.register-data-form .subject,
+.message {
+    display: inline-block;
+    width: 98%;
+    margin:15px 0;
+    border:none;
+    background:#e9e9e9;
+}
+.subject {
+    height: 29px;
+}
+.sendmessage {
+    display: block;
+    margin: auto;
+    width: 120px;
+    height: 40px;
+    background: #6195ff;
+    color: #fff;
+    border: none;
+    opacity: .7;
+    transition:opacity 1s;
+    margin-top: 20px;
+}
+.sendmessage:hover{
+    opacity:1;
+}
+/* footer section*/
+.footer {
+    background: #1c1d21;
+    text-align: center;
+    padding:60px 0;
+}
+.social-item {
+    display: inline-block;
+    list-style:none;
+
+}
+.social-items li a{
+    display:block;
+    width:40px;
+    height:40px;
+    background:#6195ff;
+    color:#fff;
+    margin-bottom:15px;
+    margin:0 5px;
+    border-radius:30%;
+}
+.social-items li a i{ /* علشان اوسطن الايكونة فى النصف بالظبط*/
+    line-height:40px;
+}
+.footer-desc{
+    text-transform:uppercase;
+    margin-top:20px;
+    color:#999;
+    font-size:15px;
+}
+
+/*
+    }
+.footer-img{
+    position:absolute;
+    top:25%;
+    left:50%;
+    transform:translate(-50% ,-50%)
+}
+.social-item .icon {
+    color: aqua;
+}
+.social-items {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.social-item{
+    display:inline-block;
+    width:20px;
+}
+.footer-desc {
+    color: #fff;
+} 
+*/
+
+
+
+
+
+
+ 
